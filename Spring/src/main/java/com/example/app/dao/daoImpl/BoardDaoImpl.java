@@ -25,6 +25,11 @@ public class BoardDaoImpl implements BoardDao {
     }
 
     @Override
+    public List<Board> findByUser_id(int userId) {
+        return sqlSession.selectList("Board.findByUserId", userId);
+    }
+
+    @Override
     public Board findById(int id) {
         return sqlSession.selectOne("Board.findById", id);
     }

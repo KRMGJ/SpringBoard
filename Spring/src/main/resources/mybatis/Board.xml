@@ -6,17 +6,21 @@
         <id column="id" property="id"/>
         <result column="title" property="title"/>
         <result column="content" property="content"/>
-        <result column="writer" property="writer"/>
-        <result column="createdDate" property="createdDate"/>
+        <result column="createDate" property="createDate"/>
+        <result column="user_id" property="user_id"/>
     </resultMap>
 
     <insert id="save" parameterType="Board">
-        INSERT INTO board (title, content, writer)
-        VALUES (#{title}, #{content}, #{writer})
+        INSERT INTO board (title, content, user_id)
+        VALUES (#{title}, #{content}, #{user_id})
     </insert>
 
-    <select id="findAll" resultType="Board">
+    <select id="findAll" resultMap="BoardResultMap">
         SELECT * FROM board
+    </select>
+
+    <select id="findByUserId" parameterType="int" resultMap="BoardResultMap">
+        SELECT * FROM board WHERE user_id = #{user_id}
     </select>
 
     <select id="findById" parameterType="int" resultType="Board">
@@ -25,7 +29,7 @@
 
     <update id="update" parameterType="Board">
         UPDATE board
-        SET title = #{title}, content = #{content}, writer = #{writer}
+        SET title = #{title}, content = #{content}
         WHERE id = #{id}
     </update>
 

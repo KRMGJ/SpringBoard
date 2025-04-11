@@ -24,11 +24,6 @@
 				<textarea id="content" name="content" class="form-control" rows="5"
 					required>${board.content}</textarea>
 			</div>
-			<div class="mb-3">
-				<label for="writer" class="form-label">작성자</label> <input
-					type="text" id="writer" name="writer" class="form-control"
-					value="${board.writer}" required>
-			</div>
 			<div class="text-end">
 				<button type="submit" class="btn btn-primary">수정</button>
 				<a href="/board/view?id=${board.id}" class="btn btn-secondary">취소</a>

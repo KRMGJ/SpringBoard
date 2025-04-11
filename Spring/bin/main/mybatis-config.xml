@@ -4,10 +4,12 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.example.app.model.Board" alias="Board"/>
+        <typeAlias type="com.example.app.model.User" alias="User"/>
     </typeAliases>
 
     <mappers>
         <mapper resource="mybatis/Board.xml"/>
+        <mapper resource="mybatis/User.xml"/>
     </mappers>
 
 </configuration>

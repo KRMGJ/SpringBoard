@@ -19,10 +19,6 @@
                 <label for="content" class="form-label">내용</label>
                 <textarea id="content" name="content" class="form-control" rows="5" required></textarea>
             </div>
-            <div class="mb-3">
-                <label for="writer" class="form-label">작성자</label>
-                <input type="text" id="writer" name="writer" class="form-control" required>
-            </div>
             <div class="text-end">
                 <button type="submit" class="btn btn-primary">작성</button>
                 <a href="/board/list" class="btn btn-secondary">취소</a>

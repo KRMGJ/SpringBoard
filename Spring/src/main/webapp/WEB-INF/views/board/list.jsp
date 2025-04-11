@@ -24,7 +24,6 @@
                     <tr>
                         <td>${board.id}</td>
                         <td><a href="/board/view?id=${board.id}" class="text-decoration-none">${board.title}</a></td>
-                        <td>${board.writer}</td>
                         <td>${board.createDate}</td>
                     </tr>
                 </c:forEach>

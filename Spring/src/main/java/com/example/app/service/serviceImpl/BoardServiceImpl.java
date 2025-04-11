@@ -6,8 +6,6 @@ import com.example.app.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,7 +16,6 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void createBoard(Board board) {
-        board.setCreateDate(LocalDateTime.now());
         boardDao.save(board);
     }
 
@@ -40,5 +37,10 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public List<Board> getAllBoards() {
         return boardDao.findAll();
+    }
+
+    @Override
+    public List<Board> getBoardsByUser_id(int id) {
+        return boardDao.findByUser_id(id);
     }
 }

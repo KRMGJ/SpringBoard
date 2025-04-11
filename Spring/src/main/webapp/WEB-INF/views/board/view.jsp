@@ -13,7 +13,6 @@
         <div class="card">
             <div class="card-body">
                 <p><strong>제목:</strong> ${board.title}</p>
-                <p><strong>작성자:</strong> ${board.writer}</p>
                 <p><strong>작성일:</strong> ${board.createDate}</p>
                 <p><strong>내용:</strong></p>
                 <p>${board.content}</p>

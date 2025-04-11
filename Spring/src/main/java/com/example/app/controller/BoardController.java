@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -23,13 +24,25 @@ public class BoardController {
 		return "board/list";
 	}
 
+	@GetMapping("/myBoard")
+	public String myBoard(HttpSession session, Model model) {
+		Integer id = (Integer) session.getAttribute("id");
+		if (id == null) return "redirect:/user/login";
+		List<Board> boardList = boardService.getBoardsByUser_id(id);
+		model.addAttribute("myBoardList", boardList);
+		return "board/myBoard";
+	}
+
 	@GetMapping("/write")
 	public String write() {
 		return "board/write";
 	}
 
 	@PostMapping("/write")
-	public String writePost(@ModelAttribute Board board) {
+	public String writePost(@ModelAttribute Board board, HttpSession session) {
+		Integer id = (Integer) session.getAttribute("id");
+		if (id == null || id == 0) return "redirect:/user/login";
+		board.setUser_id(id);
 		boardService.createBoard(board);
 		return "redirect:/board/list";
 	}

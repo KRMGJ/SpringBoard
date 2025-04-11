@@ -10,4 +10,5 @@ public interface BoardService {
     void deleteBoard(int id);
     Board getBoard(int id);
     List<Board> getAllBoards();
+    List<Board> getBoardsByUser_id(int id);
 }
